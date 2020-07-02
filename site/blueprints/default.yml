@@ -1,0 +1,11 @@
+title: Page
+options:
+  preview: false
+fields:
+  title:
+    label: Title
+    type:  text
+
+  text:
+    label: Text
+    type:  textarea

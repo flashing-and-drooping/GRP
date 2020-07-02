@@ -1,0 +1,22 @@
+title: About
+
+pages: false
+
+files: false
+
+options: 
+  template: false  
+  status: false  
+  
+fields:
+  title:
+    label: Title
+    type: title
+    
+  address:
+    label: Address
+    type: textarea
+    
+  description:
+    label: Description
+    type: textarea

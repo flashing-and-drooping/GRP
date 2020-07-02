@@ -1,0 +1,31 @@
+title: Collection
+options:
+  preview: false
+files:
+  sortable: true
+  fields:
+    title:
+      label: Title
+      type: text
+    description:
+      label: Description
+      type: textarea
+    tearsheet:
+      label: Tearsheet
+      type: select
+      options: files
+    inquire:
+      label: Inquire Button
+      type: checkbox
+      text: Show Inquire Button
+      default: true
+      width: 1
+
+      
+
+pages: false
+preview: false
+fields:
+  title:
+    label: Title
+    type:  text

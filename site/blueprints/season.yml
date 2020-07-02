@@ -1,0 +1,12 @@
+title: Season
+options:
+  preview: false
+
+files: false
+pages:
+  template: collection
+preview: false
+fields:
+  title:
+    label: Title
+    type:  text

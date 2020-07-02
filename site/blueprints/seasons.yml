@@ -1,0 +1,17 @@
+title: Seasons
+options:
+  preview: false
+files: false
+
+pages:
+  template: season
+
+options: 
+  template: false  
+  status: false  
+  url: false  
+
+fields:
+  title:
+    label: Title
+    type:  text
