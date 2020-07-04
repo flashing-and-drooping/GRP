@@ -6,7 +6,7 @@
 
     <div class="grid right three-fourths gallery">
       
-      <?php isMobile() ? snippet('showcase-mobile') : snippet('showcase') ?>
+      <?php snippet('showcase') ?>
 
     </div>
 
