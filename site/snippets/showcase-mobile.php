@@ -32,19 +32,19 @@ if(isset($limit)) $seasons = $seasons->limit($limit);
         <img class="a" src="<?php echo url('assets/images/load.jpg') ?>??" data-src="" data-src-mobile="<?= $image->resize(1000,1000,85)->url()?>" alt="">
         <figcaption>
           
-          <? if ($image->title()->isNotEmpty()) :?>
+          <?php if ($image->title()->isNotEmpty()) :?>
             <?= $image->title()->kt() ?>
-          <? endif ?>
-          <? if ($image->description()->isNotEmpty()) :?>
+          <?php endif ?>
+          <?php if ($image->description()->isNotEmpty()) :?>
             <?= $image->description()->kt() ?>
-          <? endif ?>
-          <? if ($image->inquire() == true) :?>
+          <?php endif ?>
+          <?php if ($image->inquire() == true) :?>
            
             <a href="mailto:info@greenriverprojectllc.com?subject=<?= $image->title() ?>">
               INQUIRE
             </a>
 
-          <? endif ?>
+          <?php endif ?>
          
         </figcaption>
       </figure>

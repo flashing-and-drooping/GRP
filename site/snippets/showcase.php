@@ -35,26 +35,26 @@ if(isset($limit)) $seasons = $seasons->limit($limit);
         <img class="a" src="<?php echo url('assets/images/load.jpg') ?>" data-src="<?= $image->resize(2000,2000,90)->url()?>" alt="">
         <figcaption>
           
-          <? if ($image->title()->isNotEmpty()) :?>
+          <?php if ($image->title()->isNotEmpty()) :?>
             <?= $image->title()->kt() ?>
-          <? endif ?>
-          <? if ($image->description()->isNotEmpty()) :?>
+          <?php endif ?>
+          <?php if ($image->description()->isNotEmpty()) :?>
             <?= $image->description()->kt() ?>
-          <? endif ?>
-          <? if ($image->tearsheet()->isNotEmpty()) :?>
+          <?php endif ?>
+          <?php if ($tearsheet = $image->tearsheet()->toFile()) :?>
            
-            <a target="_blank" href="<?= $image->tearsheet()->toFile()->url() ?>">
+            <a target="_blank" href="<?= $tearsheet->url() ?>">
               DOWNLOAD TEARSHEET
             </a>
 
-          <? endif ?>
-          <? if ($image->inquire() == true) :?>
+          <?php endif ?>
+          <?php if ($image->inquire() == true) :?>
            
             <a href="mailto:info@greenriverprojectllc.com?subject=<?= $image->title() ?>">
               INQUIRE
             </a>
 
-          <? endif ?>
+          <?php endif ?>
          
         </figcaption>
       </figure>
