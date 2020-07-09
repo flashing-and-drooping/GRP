@@ -28,50 +28,44 @@
   <title><?= $site->title()->html() ?></title>
   <meta name="description" content="<?= $site->description()->html() ?>">
 
-  <?= css('assets/css/index.css') ?>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127006539-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-127006539-1');
-  </script>
-
+  <style><?= F::read('assets/css/site.css') ?></style>
 </head>
-<body>
-
-  <header class="grid full">
-
-    <div class="grid full header">
-		
-      <div class="menu-button">
-        <div class="icon">
-          <div class="line"></div>
-          <div class="line"></div>
+<body
+  class="
+    page-<?= $page->intendedTemplate() ?>
+    <?= r('interiors' === $page->intendedTemplate(), 'dark-theme') ?>
+    font-sans text-color bg-background transition-colors duration-500 ease
+  ">
+  <div id="nanobar" data-persist></div>
+  <header class="fixed top-0 bottom-0 z-10 flex flex-col w-full pointer-events-none">
+    <div class="w-full bg-background border-b border-gray-light transition-colors duration-500 ease pointer-events-auto">
+      <div class="flex">
+        <button class="sm:hidden p-2 focus:outline-none" type="button" aria-label="Toggle menu" aria-controls="menu" aria-expanded="false">
+          <div class="relative" style="height: 10px; width: 35px;">
+            <span class="absolute top-0 block w-full h-px transform origin-center transition duration-150 bg-gray-light"></span>
+            <span class="absolute bottom-0 block w-full h-px transform origin-center transition duration-150 bg-gray-light"></span>
+          </div>
+        </button>
+        
+        <a href="/" class="logo flex items-center justify-center flex-grow sm:w-full pr-2 sm:p-5 focus:outline-none">
+          <span style="width: 260px;">
+            <?= F::read('assets/images/logo.svg') ?>
+          </span>
+        </a>
+      </div>
+    
+      <div class="info flex flex-col sm:flex-row-reverse" data-display="flex">
+        <div class="w-full sm:w-1/2 p-2 pt-0">
+          <?= page('home')->description()->kt()->upper() ?>
+        </div>
+  
+        <div class="w-full  sm:w-1/2 p-2 pt-0">
+          <?= page('home')->address()->kt()->upper() ?>
         </div>
       </div>
-	  	
-      <div class="grid full logo">
-        <img style="width:260px;" src="<?= url('assets/images/logo.svg') ?>" alt="" />
-      </div>
-  
-      <div class="grid full info padding">
-  
-        <div class="grid half">
-          <?= page('about')->address()->kt()->upper() ?>
-        </div>
-
-        <div class="grid half about" style="padding-left:5px">
-          <?= page('about')->description()->kt()->upper() ?>
-        </div>
-  
-      </div>
-
     </div>
 
     <?php snippet('menu') ?>
-    
   </header>
+
+  <div class="sm:flex sm:justify-end">

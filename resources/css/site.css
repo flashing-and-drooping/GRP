@@ -1,0 +1,118 @@
+@tailwind base;
+
+:root {
+  --black: theme('colors.black');
+  --grayDark: theme('colors.gray-dark');
+  --text: theme('colors.gray');
+  --background: theme('colors.blue');
+  --screen: theme('screens.sm');
+}
+
+html {
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  scroll-behavior: smooth;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+}
+
+.frame {
+  @apply relative block;
+  background-color: rgba(255, 255, 255, .5);
+  --w: 1;
+  --h: 1;
+  padding-bottom: calc(100% / var(--w) * var(--h));
+  width: 100%;
+}
+
+.dark-theme .frame {
+  background-color: rgba(255, 255, 255, .03);
+}
+
+@screen sm {
+  .figure-fit .frame {
+    padding-bottom: calc(50% / var(--w) * var(--h));
+    width: 50%;
+  }
+}
+
+.frame img {
+  @apply absolute inset-0 border-0;
+}
+
+/* @tailwind components; */
+
+button[aria-expanded="true"] span:first-child {
+  @apply top-1/2 rotate-45;
+}
+
+button[aria-expanded="true"] span:last-child {
+  @apply bottom-1/2 -rotate-45;
+}
+
+.page-home {
+  @apply overflow-hidden;
+}
+
+.dark-theme {
+  --text: theme('colors.gray-dark');
+  --background: theme('colors.black');
+}
+
+.nanobar {
+  height: 2px;
+}
+
+.nanobar .bar {
+  @apply bg-black;
+}
+
+.dark-theme .nanobar .bar {
+  @apply bg-white;
+}
+
+main {
+  padding-top: calc(var(--header-height) - 1px);
+  transition: padding-top .3s ease-out;
+}
+
+@media (max-width: theme('screens.sm')) {
+  .menu[aria-hidden="true"] {
+    margin-top: -1px;
+    z-index: -1;
+  }
+}
+
+@screen sm {
+  .menu[aria-hidden="true"] {
+    max-height: initial;
+  }
+}
+
+[data-ignore="true"] {
+  pointer-events: none;
+}
+
+.lozad {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.lozad[data-loaded] {
+  opacity: 1;
+}
+
+@tailwind utilities;
