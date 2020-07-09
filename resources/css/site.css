@@ -24,6 +24,10 @@ img {
   @apply w-full max-w-full;
 }
 
+figure:last-child {
+  @apply mb-0;
+}
+
 button[aria-expanded="true"] span:first-child {
   @apply top-1/2 rotate-45;
 }
