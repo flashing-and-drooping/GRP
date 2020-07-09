@@ -31,7 +31,7 @@
         
         <a
           href="/"
-          class="logo flex flex-grow items-center justify-center sm:w-full p-3 sm:p-5 focus:outline-none"
+          class="logo flex flex-grow items-center justify-center sm:w-full p-3 pl-0 sm:p-5 focus:outline-none"
           aria-label="<?= $site->title()->html() ?>">
           <span style="width: 260px;">
             <?= F::read('assets/images/logo.svg') ?>
