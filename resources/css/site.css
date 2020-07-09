@@ -13,44 +13,16 @@ html {
 }
 
 li {
-  list-style-type: none;
+  @apply list-none;
 }
 
 a {
-  color: currentColor;
-  text-decoration: none;
+  @apply text-current no-underline;
 }
 
 img {
-  width: 100%;
-  max-width: 100%;
+  @apply w-full max-w-full;
 }
-
-.frame {
-  @apply relative block;
-  background-color: rgba(255, 255, 255, .5);
-  --w: 1;
-  --h: 1;
-  padding-bottom: calc(100% / var(--w) * var(--h));
-  width: 100%;
-}
-
-.dark .frame {
-  background-color: rgba(255, 255, 255, .03);
-}
-
-@screen sm {
-  .figure-half .frame {
-    padding-bottom: calc(50% / var(--w) * var(--h));
-    width: 50%;
-  }
-}
-
-.frame img {
-  @apply absolute inset-0 border-0;
-}
-
-/* @tailwind components; */
 
 button[aria-expanded="true"] span:first-child {
   @apply top-1/2 rotate-45;
@@ -69,21 +41,29 @@ button[aria-expanded="true"] span:last-child {
   --background: theme('colors.black');
 }
 
-.nanobar {
-  height: 2px;
+.frame {
+  --w: 1;
+  --h: 1;
+
+  @apply relative block w-full;
+  
+  background-color: rgba(255, 255, 255, .5);
+  padding-bottom: calc(100% / var(--w) * var(--h));
 }
 
-.nanobar .bar {
-  @apply bg-black;
+.dark .frame {
+  background-color: rgba(255, 255, 255, .03);
 }
 
-.dark .nanobar .bar {
-  @apply bg-white;
+@screen sm {
+  .figure-half .frame {
+    @apply w-1/2;
+    padding-bottom: calc(50% / var(--w) * var(--h));
+  }
 }
 
-main {
-  padding-top: calc(var(--header-height) - 1px);
-  transition: padding-top .3s ease-out;
+.frame img {
+  @apply absolute inset-0 border-0;
 }
 
 @media (max-width: theme('screens.sm')) {
@@ -93,23 +73,28 @@ main {
   }
 }
 
-@screen sm {
-  .menu[aria-hidden="true"] {
-    max-height: initial;
-  }
-}
-
 [data-ignore="true"] {
-  pointer-events: none;
+  @apply pointer-events-none;
 }
 
 .lozad {
-  opacity: 0;
-  transition: opacity 1s;
+  @apply opacity-0 transition-opacity duration-1000;
 }
 
 .lozad[data-loaded] {
-  opacity: 1;
+  @apply opacity-100;
+}
+
+.nanobar {
+  @apply h-3px;
+}
+
+.nanobar .bar {
+  @apply bg-black;
+}
+
+.dark .nanobar .bar {
+  @apply bg-white;
 }
 
 @tailwind utilities;
