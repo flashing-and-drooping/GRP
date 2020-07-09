@@ -1,11 +1,12 @@
 <div
   id="menu"
   class="
-    menu hidden sm:flex flex-col sm:flex-grow w-full sm:w-1/4
+    <?= r('interiors' === $page->intendedTemplate(), 'flex', 'hidden') ?>
+    menu sm:flex flex-col sm:flex-grow w-full sm:w-1/4
     bg-background sm:bg-transparent border-b sm:border-0 border-gray-light
     transition-colors duration-500 ease-in-out pointer-events-auto
   "
-  aria-hidden="true"
+  aria-hidden="<?= r('interiors' === $page->intendedTemplate(), 'false', 'true') ?>"
   data-display="flex">
 
   <nav class="w-full p-2">
