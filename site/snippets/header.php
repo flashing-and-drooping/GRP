@@ -29,7 +29,10 @@
       <div class="flex">
         <?= snippet('menu-button') ?>
         
-        <a href="/" class="logo flex items-center justify-center flex-grow sm:w-full p-3 sm:p-5 focus:outline-none">
+        <a
+          href="/"
+          class="logo flex flex-grow items-center justify-center sm:w-full p-3 sm:p-5 focus:outline-none"
+          aria-label="<?= $site->title()->html() ?>">
           <span style="width: 260px;">
             <?= F::read('assets/images/logo.svg') ?>
           </span>
