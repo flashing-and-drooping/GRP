@@ -15,7 +15,7 @@
 <body
   class="
     page-<?= $page->intendedTemplate() ?>
-    <?= r('interiors' === $page->intendedTemplate(), 'dark') ?>
+    <?= r(in_array($page->intendedTemplate(), ['interiors', 'interior']), 'dark') ?>
     font-sans text-color uppercase bg-background
     transition-colors duration-500 ease
   ">

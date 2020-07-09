@@ -1,8 +1,6 @@
-<?php foreach ($page->children()->visible() as $collection) : ?>
+<div id="<?= $page->slug() ?>" class="grid">
 
-<div id="<?= $collection->slug() ?>" class="grid">
-
-  <?php foreach ($collection->images()->sortBy('sort', 'asc') as $image) : ?>
+  <?php foreach ($page->images()->sortBy('sort', 'asc') as $image) : ?>
   <figure class="<?= r($image->half()->isTrue(), 'figure-half') ?> flex justify-center w-full mb-3">
     <span class="frame" style="--w:<?= $image->width() ?>;--h:<?= $image->height() ?>;">
       <img
@@ -15,5 +13,3 @@
   <?php endforeach ?>
 
 </div>
-    
-<?php endforeach ?>
