@@ -40,7 +40,7 @@ module.exports = {
     },
     extend: {
       height: theme => ({
-        fill: `calc(${theme('spacing.100vh')} - var(--header-height, 0))`,
+        fill: `calc(${theme('spacing.100vh')} - var(--header-height, 0px))`,
         screen: theme('spacing.100vh'),
       }),
       inset: {
