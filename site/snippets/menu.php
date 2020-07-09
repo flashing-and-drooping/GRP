@@ -1,5 +1,5 @@
 <div id="menu" class="
-    menu hidden sm:flex flex-col sm:flex-grow w-full sm:w-1/3
+    menu hidden sm:flex flex-col sm:flex-grow w-full sm:w-1/4
     uppercase bg-background sm:bg-transparent border-b sm:border-0 border-gray-light
     transition-colors duration-500 ease-in-out pointer-events-auto
   "

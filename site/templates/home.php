@@ -1,6 +1,6 @@
 <?php snippet('header') ?>
 
-  <main class="w-full h-screen sm:w-2/3">
+  <main class="w-full sm:w-3/4">
       
     <?php if ($image = $page->cover()->toFile()) : ?>
     <figure class="w-full h-full mb-3">
