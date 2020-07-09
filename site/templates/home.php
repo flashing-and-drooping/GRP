@@ -1,6 +1,6 @@
 <?php snippet('header') ?>
 
-<div class="sm:flex sm:justify-end">
+<div class="sm:flex sm:justify-end pt-offset">
 
   <main class="w-full sm:w-3/4">
       
