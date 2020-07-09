@@ -1,18 +1,15 @@
 @tailwind base;
 
 :root {
-  --black: theme('colors.black');
-  --grayDark: theme('colors.gray-dark');
   --text: theme('colors.gray');
   --background: theme('colors.blue');
-  --screen: theme('screens.sm');
+  --screen-sm: theme('screens.sm');
 }
 
 html {
   font-size: 10px;
   line-height: 1.4;
   letter-spacing: 0.02em;
-  scroll-behavior: smooth;
 }
 
 li {
