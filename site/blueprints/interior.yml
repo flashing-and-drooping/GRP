@@ -1,0 +1,25 @@
+title: Interior
+options:
+  preview: false
+files:
+  sortable: true
+  fields:
+    title:
+      label: Title
+      type: text
+      required: false
+    description:
+      label: Description
+      type: textarea
+    cover:
+      label: Cover
+      type: toggle
+      default: true
+      required: true
+
+pages: false
+preview: false
+fields:
+  title:
+    label: Title
+    type:  text
