@@ -11,10 +11,10 @@ files:
     description:
       label: Description
       type: textarea
-    cover:
-      label: Cover
+    half:
+      label: Half
       type: toggle
-      default: true
+      default: false
       required: true
 
 pages: false

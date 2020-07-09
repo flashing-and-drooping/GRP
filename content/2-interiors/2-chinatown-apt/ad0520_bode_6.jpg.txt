@@ -6,4 +6,4 @@ Description:
 
 ----
 
-Cover: true
+Half: false
