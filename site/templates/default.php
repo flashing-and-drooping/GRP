@@ -1,19 +1,20 @@
 <?php snippet('header') ?>
 
-  <main class="w-full sm:w-3/4">
+<div class="sm:flex sm:justify-end">
 
-    <header class="wrap">
+  <main class="w-full sm:w-3/4">
+      
+    <header>
+
       <h1><?= $page->title()->html() ?></h1>
-      <div class="intro text">
-        <?= $page->intro()->kirbytext() ?>
-      </div>
-      <hr />
+      <div><?= $page->intro()->kirbytext() ?></div>
+
     </header>
       
-    <div class="text wrap">
-      <?= $page->text()->kirbytext() ?>
-    </div>
+    <article><?= $page->text()->kirbytext() ?></article>
 
   </main>
+
+</div>
 
 <?php snippet('footer') ?>
