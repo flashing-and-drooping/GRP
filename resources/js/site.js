@@ -90,7 +90,7 @@ function clickHandler(e) {
 
     // Handle hash links
     let control = target.closest('[aria-controls]')
-    if (control) return controlClickHandler(control)
+    if (control) controlClickHandler(control)
 
     // Handle hash links
     let hashLink = target.closest('li a[href^="#"]')
