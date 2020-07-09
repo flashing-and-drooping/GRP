@@ -12,7 +12,7 @@ const logo = document.querySelector('.logo')
 const menu = document.querySelector('.menu')
 const nanobar = new Nanobar({ target: document.getElementById('nanobar') })
 const smallBreakpoint = getComputedStyle(document.documentElement)
-    .getPropertyValue('--screen')
+    .getPropertyValue('--screen-sm')
     .replace(/\D/g, '')
 
 calculateHeaderHeight()
