@@ -10,9 +10,7 @@ const header = document.querySelector('header div:first-child')
 const info = document.querySelector('.info')
 const logo = document.querySelector('.logo')
 const menu = document.querySelector('.menu')
-const nanobar = new Nanobar({
-    target: document.getElementById('nanobar')
-})
+const nanobar = new Nanobar({ target: document.getElementById('nanobar') })
 const smallBreakpoint = getComputedStyle(document.documentElement)
     .getPropertyValue('--screen')
     .replace(/\D/g, '')
@@ -33,28 +31,26 @@ logo.addEventListener('click', event => {
 })
 
 // Start menu and private toggles
-Array.from(document.querySelectorAll('[aria-controls]'))
-    .forEach(control => {
-        control.addEventListener('click', () => {
-            if (control.dataset.ignore && 'true' === control.dataset.ignore) return
+function controlClickHandler(control) {
+    if ('true' === control.getAttribute('data-ignore')) return
 
-            const targetId = control.getAttribute('aria-controls')
-            const target = document.getElementById(targetId)
-            
-            if (!target) return
+    const targetId = control.getAttribute('aria-controls')
+    const target = document.getElementById(targetId)
+    
+    if (!target) return
 
-            if ('true' === control.getAttribute('aria-expanded')) {
-                collapse(target)
-            } else {
-                expand(target)
+    if ('true' === control.getAttribute('aria-expanded')) {
+        collapse(target)
+    } else {
+        expand(target)
 
-                if (target.id.startsWith('list-')) {
-                    Array.from(document.querySelectorAll('[id^="list-"]:not(#'+target.id+')'))
-                        .forEach(list => collapse(list))
-                }
-            }
-        })
-    })
+        if (target.id.startsWith('list-')) {
+            // Collapse other lists
+            Array.from(document.querySelectorAll('[id^="list-"]:not(#'+target.id+')'))
+                .forEach(list => collapse(list))
+        }
+    }
+}
 
 // Smooth scrolling when clicking on menu link
 function hashClickHandler(link) {
@@ -63,20 +59,20 @@ function hashClickHandler(link) {
     
     if (!target) return
 
+    event.preventDefault()
+
     if (isMobile()) collapse(menu)
 
     scrollTo(document.body, { top: target.offsetTop, easing: 'ease-in-out' })
     
-    event.preventDefault()
-    
-    setTimeout(() => location.hash = currentHash = hash, 500)
+    location.hash = currentHash = hash
 }
 
 // Fake private form
 Array.from(document.querySelectorAll('form input'))
     .forEach(input => {
         input.addEventListener('keyup', event => {
-            if (event.which !== 13) return;
+            if (13 !== event.which) return
 
             Array.from(document.querySelectorAll('form input'))
                 .forEach(element => element.blur())
@@ -93,6 +89,10 @@ function clickHandler(e) {
     let target = e.target
 
     // Handle hash links
+    let control = target.closest('[aria-controls]')
+    if (control) return controlClickHandler(control)
+
+    // Handle hash links
     let hashLink = target.closest('li a[href^="#"]')
     if (hashLink) return hashClickHandler(hashLink)
 
@@ -101,13 +101,13 @@ function clickHandler(e) {
     if (target === null) return
 
     // Skip ignored links
-    if (target.dataset.ignore && 'true' === target.dataset.ignore) return;
+    if ('true' === control.getAttribute('data-ignore')) return;
     
     // Skip external links
-    if (target && target.host !== location.host) return
+    if (target.host !== location.host) return
     
     // Skip media links
-    if (target && target.pathname.startsWith('/media')) return
+    if (target.pathname && target.pathname.startsWith('/media')) return
     
     e.preventDefault()
     
@@ -138,10 +138,7 @@ function load(path) {
 
 function loaded() {
     // Lazyload images
-    lozad('.lozad', {
-        rootMargin: '20px 0px',
-        threshold: 0.1,
-    }).observe()
+    lozad('.lozad', { rootMargin: '20px 0px', threshold: 0.1, }).observe()
 
     // Check vh unit
     vhCheck()
@@ -165,7 +162,7 @@ function visitHandler(path) {
 // Stick header to the top
 function calculateHeaderHeight() {
     if (isTop()) {
-        expand(info).then(function () {
+        expand(info).then(() => {
             document.documentElement.style.setProperty(
                 '--header-height', header.clientHeight+'px'
             )
