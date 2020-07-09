@@ -1,8 +1,6 @@
-title: About
+title: Home
 
 pages: false
-
-files: false
 
 options: 
   template: false  
@@ -12,7 +10,13 @@ fields:
   title:
     label: Title
     type: title
+    readonly: true
     
+  cover:
+    label: Cover Image
+    type: image
+    required: true
+
   address:
     label: Address
     type: textarea

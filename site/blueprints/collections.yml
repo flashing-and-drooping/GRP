@@ -1,10 +1,10 @@
-title: Seasons
+title: Collections
 options:
   preview: false
 files: false
 
 pages:
-  template: season
+  template: year
 
 options: 
   template: false  
