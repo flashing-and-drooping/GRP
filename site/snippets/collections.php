@@ -20,8 +20,8 @@
       <?php if ($image->description()->isNotEmpty()) : ?>
         <?= $image->description()->kt() ?>
       <?php endif ?>
-      <?php if (! isMobile() && $tearsheet = $image->tearsheet()->toFile()) : ?>
-        <a href="<?= $tearsheet->url() ?>" download>
+      <?php if ($tearsheet = $image->tearsheet()->toFile()) : ?>
+        <a href="<?= $tearsheet->url() ?>" class="hidden sm:inline-block" download>
           DOWNLOAD TEARSHEET
         </a>
       <?php endif ?>
