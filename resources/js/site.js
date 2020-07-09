@@ -3,6 +3,7 @@ import morphdom from 'morphdom'
 import Nanobar from 'nanobar'
 import { slideDown, slideUp, isVisible } from 'slide-anim'
 import { scrollTo } from 'scroll-js'
+import vhCheck from 'vh-check'
 
 let currentHash = null
 const header = document.querySelector('header div:first-child')
@@ -141,6 +142,9 @@ function loaded() {
         rootMargin: '20px 0px',
         threshold: 0.1,
     }).observe()
+
+    // Check vh unit
+    vhCheck()
 }
     
 function visitHandler(path) {

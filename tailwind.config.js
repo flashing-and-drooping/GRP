@@ -33,11 +33,16 @@ module.exports = {
       '3': '2.1rem',
       '4': '2.8rem',
       '5': '3.5rem',
+      '100vh': 'calc(var(--vh, 1vh) * 100)',
     },
     fontFamily: {
       sans: ['"Helvetica Neue"', 'Helvetica', 'sans-serif'],
     },
     extend: {
+      height: theme => ({
+        fill: `calc(${theme('spacing.100vh')} - var(--header-height, 0))`,
+        screen: theme('spacing.100vh'),
+      }),
       inset: {
         '1/2': '50%',
       },
