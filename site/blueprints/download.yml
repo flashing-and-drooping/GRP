@@ -1,0 +1,10 @@
+title: PDF
+
+pages: false
+options:
+  preview: true
+  
+fields:
+  title:
+    label: Title
+    type:  text

@@ -7,8 +7,7 @@ email: info@greenriverprojectllc.com
 language: en
 role: admin
 history:
-  - about
-  - seasons/2018/iii
-  - seasons/2018/i
-  - seasons/2018/ii
-  - seasons/2018/iv
+  - home
+  - interiors/chinatown-apt
+  - interiors/dr-clark
+  - interiors/bode

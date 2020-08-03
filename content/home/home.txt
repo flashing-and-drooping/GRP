@@ -12,9 +12,7 @@ Text: The approach of using subpages for storing content sections of a page can 
 
 Address: 
 
-GREEN RIVER PROJECT LLC STORE 
-204 EAST 7TH STREET, NEW YORK
-closed for installation
+GREEN RIVER PROJECT LLC 
 (email: INFO@GREENRIVERPROJECTLLC.COM text: INFO@GREENRIVERPROJECTLLC.COM)
 
 ----
@@ -23,4 +21,4 @@ Description: FOUNDED IN 2017 BY AARON AUJLA AND BENJAMIN BLOOMSTEIN, GREEN RIVER
 
 ----
 
-Cover: bode-front.jpg
+Cover: dc-front.jpg

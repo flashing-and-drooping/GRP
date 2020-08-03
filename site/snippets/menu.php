@@ -4,7 +4,7 @@
     <?= r('interiors' === $page->intendedTemplate(), 'flex', 'hidden') ?>
     menu sm:flex flex-col sm:flex-grow w-full sm:w-1/4
     bg-background sm:bg-transparent border-b sm:border-0 border-gray-light
-    transition-colors duration-500 ease-in-out pointer-events-auto
+     ease-in-out pointer-events-auto
   "
   aria-hidden="<?= r('interiors' === $page->intendedTemplate(), 'false', 'true') ?>"
   data-display="flex">
@@ -24,12 +24,12 @@
 
     <ul
       id="list-<?= $section->uid() ?>"
-      class="<?= r(!$section->isOpen(), 'hidden') ?> mb-1 ml-1"
+      class="<?= r(!$section->isOpen(), 'hidden') ?> mb-1 <? if($section->title() !="Collections") :?>ml-1 <? endif ?>"
       aria-hidden="<?= r($section->isOpen(), 'false', 'true') ?>">
 
       <?php foreach ($section->children()->visible() as $item) : ?>
 
-      <li class="mb-1">
+      <li class="mb-1 ml-1">
         <?php if ('year' === $item->intendedTemplate()) : ?>
           
         <?= $item->title()->html() ?>
@@ -49,10 +49,10 @@
         <?php endif ?>
 
         <?php if ($item->children()->visible()->count()) : ?>
-        <ul class="ml-1">
+        <ul class="">
 
           <?php foreach ($item->children()->visible() as $subitem) : ?>
-          <li class="mt-1">
+          <li class="">
             <a href="#<?= $subitem->slug() ?>">
               <?= $subitem->title()->html() ?>
             </a>
@@ -70,5 +70,5 @@
 
   </nav>
 
-  <?= snippet('private') ?>
+  <? # snippet('private') ?>
 </div>

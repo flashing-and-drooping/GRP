@@ -14,7 +14,7 @@ RewriteEngine on
 # If your homepage is http://yourdomain.com/mysite
 # Set the RewriteBase to:
 #
-# RewriteBase /mysite
+# RewriteBase /proxy/
 
 # In some enviroments it's necessary to
 # set the RewriteBase to:
@@ -31,7 +31,7 @@ RewriteRule ^content/(.*)\.(txt|md|mdown)$ index.php [L]
 RewriteRule ^site/(.*) index.php [L]
 
 # block direct access to kirby and the panel sources
-RewriteRule ^(resources|kirby|panel\/app|panel\/tests)/(.*) index.php [L]
+RewriteRule ^(kirby|panel\/app|panel\/tests)/(.*) index.php [L]
 
 # make panel links work
 RewriteCond %{REQUEST_FILENAME} !-f

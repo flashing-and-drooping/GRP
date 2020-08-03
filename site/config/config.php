@@ -17,8 +17,9 @@ for more information: http://getkirby.com/license
 
 c::set('ssl',true);
 c::set('debug', true);
+c::set('cache', true);
 c::set('content', 'files');
-c::set('cache', false);
+
 
 
 kirby()->hook('panel.file.upload', 'resizeImage');
