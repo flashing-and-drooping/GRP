@@ -4,7 +4,7 @@
     <?= r('interiors' === $page->intendedTemplate(), 'flex', 'hidden') ?>
     menu sm:flex flex-col sm:flex-grow w-full sm:w-1/4
     bg-background sm:bg-transparent border-b sm:border-0 border-gray-light
-     ease-in-out pointer-events-auto
+    pointer-events-auto
   "
   aria-hidden="<?= r('interiors' === $page->intendedTemplate(), 'false', 'true') ?>"
   data-display="flex">
@@ -70,5 +70,5 @@
 
   </nav>
 
-  <? # snippet('private') ?>
+  <?= snippet('private') ?>
 </div>
