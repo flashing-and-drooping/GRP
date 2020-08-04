@@ -12,10 +12,6 @@ html {
   letter-spacing: 0.02em;
 }
 
-li {
-  @apply list-none;
-}
-
 a {
   @apply text-current no-underline;
 }
