@@ -5,7 +5,6 @@ import { slideDown, slideUp, isVisible } from 'slide-anim'
 import { scrollTo } from 'scroll-js'
 import vhCheck from 'vh-check'
 
-let currentHash = null
 const header = document.querySelector('header div:first-child')
 const info = document.querySelector('.info')
 const logo = document.querySelector('.logo')
@@ -65,7 +64,7 @@ function hashClickHandler(link) {
 
     scrollTo(document.body, { top: target.offsetTop, easing: 'ease-in-out' })
     
-    location.hash = currentHash = hash
+    history.pushState({ path: location.pathname }, null, hash)
 }
 
 // Fake private form
@@ -145,17 +144,20 @@ function loaded() {
 }
     
 function visitHandler(path) {
-    // Prevent double hash change
-    if (location.hash === currentHash && 'popstate' === path.type) return
+    let pushState = true
 
     // Handle pop state event
     if ('object' === typeof path && 'popstate' === path.type) {
-        path = location.pathname
+        // Skip hash paths
+        if ('' !== location.hash) return
+
+        path = path.state ? path.state.path : location.pathname
+        pushState = false
     }
     
-    load(path).then(() => {
+    load(path).then(function() {
         // Push new path to browser history
-        if ('string' === typeof path) window.history.pushState(null, null, path)
+        if (pushState) window.history.pushState({ path }, '', path)
     })
 }
 
