@@ -5,6 +5,7 @@ import { slideDown, slideUp, isVisible } from 'slide-anim'
 import { scrollTo } from 'scroll-js'
 import vhCheck from 'vh-check'
 
+let currentPath = location.pathname
 const header = document.querySelector('header div:first-child')
 const info = document.querySelector('.info')
 const logo = document.querySelector('.logo')
@@ -148,16 +149,17 @@ function visitHandler(path) {
 
     // Handle pop state event
     if ('object' === typeof path && 'popstate' === path.type) {
-        // Skip hash paths
-        if ('' !== location.hash) return
-
         path = path.state ? path.state.path : location.pathname
         pushState = false
+
+        // Skip same path
+        if (currentPath === path) return
     }
     
     load(path).then(function() {
         // Push new path to browser history
         if (pushState) window.history.pushState({ path }, '', path)
+        currentPath = path
     })
 }
 
