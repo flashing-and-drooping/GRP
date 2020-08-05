@@ -1,7 +1,7 @@
 <div
   id="menu"
   class="
-    <?= r('interiors' === $page->intendedTemplate(), 'flex', 'hidden') ?>
+    <?= r(in_array($page->intendedTemplate(), ['collections', 'interiors']), 'flex', 'hidden') ?>
     menu sm:flex flex-col sm:flex-grow w-full sm:w-1/4
     bg-background sm:bg-transparent border-b sm:border-0 border-gray-light
     pointer-events-auto
@@ -24,7 +24,7 @@
 
     <ul
       id="list-<?= $section->uid() ?>"
-      class="<?= r(!$section->isOpen(), 'hidden') ?> mb-1 <? if($section->title() !="Collections") :?>ml-1 <? endif ?>"
+      class="<?= r(!$section->isOpen(), 'hidden') ?> mb-1 <?= r($section->title() !== 'Collections', 'ml-1') ?>"
       aria-hidden="<?= r($section->isOpen(), 'false', 'true') ?>">
 
       <?php foreach ($section->children()->visible() as $item) : ?>
