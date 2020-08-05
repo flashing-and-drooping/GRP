@@ -6,6 +6,8 @@
       
     <h1 class="sr-only"><?= $page->title()->html() ?></h1>
 
+    <?php snippet('interiors') ?>
+
   </main>
 
 </div>

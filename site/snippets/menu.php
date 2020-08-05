@@ -34,12 +34,6 @@
           
         <?= $item->title()->html() ?>
 
-        <?php elseif ('interior' === $item->intendedTemplate()) : ?>
-
-        <a href="<?= $item->url() ?>" class="inline-block">
-          <?= $item->title()->html() ?>
-        </a>
-
         <?php else : ?>
 
         <a href="#<?= $item->slug() ?>" class="inline-block">
@@ -70,5 +64,5 @@
 
   </nav>
 
-  <?= snippet('private') ?>
+  <?php /* echo snippet('private') */ ?>
 </div>
