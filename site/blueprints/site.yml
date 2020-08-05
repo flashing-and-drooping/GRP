@@ -12,6 +12,14 @@ fields:
   description:
     label: Description
     type:  textarea
+  
+  address:
+    label: Address
+    type: textarea
+    
+  intro:
+    label: Intro
+    type: textarea
     
   copyright:
     label: Copyright

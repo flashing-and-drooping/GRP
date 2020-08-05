@@ -15,7 +15,8 @@ for more information: http://getkirby.com/license
 
 */
 
-c::set('ssl',true);
+c::set('home', 'collections');
+c::set('ssl', true);
 c::set('debug', true);
 c::set('cache', true);
 c::set('content', 'files');

@@ -40,11 +40,11 @@
     
       <div class="info flex flex-col sm:flex-row break-words" data-display="flex"> 
         <div class="w-full sm:w-1/4 md:w-1/2 p-2 pb-3 sm:pr-5px pt-0">
-          <?= page('home')->address()->kt()->upper() ?>
+          <?= $site->address()->kt()->upper() ?>
         </div>
 
         <div class="w-full sm:w-3/4 md:w-1/2 p-2 pb-3 sm:pl-3px pt-0">
-          <?= page('home')->description()->kt()->upper() ?>
+          <?= $site->intro()->kt()->upper() ?>
         </div>
       </div>
 
