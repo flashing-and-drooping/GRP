@@ -15,7 +15,6 @@ const smallBreakpoint = getComputedStyle(document.documentElement)
     .getPropertyValue('--screen-sm')
     .replace(/\D/g, '')
 
-calculateHeaderHeight()
 loaded()
     
 document.addEventListener('click', clickHandler)
@@ -137,6 +136,8 @@ function load(path) {
 }
 
 function loaded() {
+    calculateHeaderHeight()
+
     // Lazyload images
     lozad('.lozad', { rootMargin: '20px 0px', threshold: 0.1, }).observe()
 
@@ -172,6 +173,8 @@ function calculateHeaderHeight() {
             )
         })
     } else if (isVisible(info)) {
+        if ('false' !== info.getAttribute('aria-hidden')) return
+
         collapse(info)
     }
 }
