@@ -21,7 +21,7 @@
 
   <div id="nanobar" data-persist></div>
 
-  <header class="fixed top-0 bottom-0 z-10 flex flex-col w-full pointer-events-none" data-persist>
+  <header class="fixed top-0 bottom-0 z-10 flex flex-col w-full pointer-events-none">
 
     <div class="w-full bg-background border-b border-gray-light pointer-events-auto">
 
