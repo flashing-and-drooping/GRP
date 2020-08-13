@@ -38,8 +38,9 @@
         </a>
       </div>
     
-      <div class="info flex flex-col sm:flex-row break-words" data-display="flex"> 
+      <div class="info flex flex-col-reverse sm:flex-row break-words" data-display="flex"> 
         <div class="w-full sm:w-1/4 md:w-1/2 p-2 pb-3 sm:pr-5px pt-0">
+          <p class="hidden sm:block"><?= $site->title()->upper() ?></p>
           <?= $site->address()->kt()->upper() ?>
         </div>
 
