@@ -1,6 +1,6 @@
 <?php foreach ($page->grandChildren()->visible() as $collection) : ?>
 
-<div id="<?= $collection->slug() ?>" class="grid sm:grid-cols-2 md:grid-cols-3 gap-5px">
+<div id="<?= $collection->slug() ?>" class="grid sm:grid-cols-2 md:grid-cols-3 gap-5px mb-3">
 
   <?php foreach ($collection->images()->sortBy('sort', 'asc') as $image) : ?>
   <figure class="w-full mb-3">

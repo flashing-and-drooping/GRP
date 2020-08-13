@@ -1,9 +1,9 @@
 <?php foreach ($page->children()->visible() as $interior) : ?>
 
-<div id="<?= $interior->slug() ?>" class="grid">
+<div id="<?= $interior->slug() ?>" class="grid mb-3">
 
   <?php foreach ($interior->images()->sortBy('sort', 'asc') as $image) : ?>
-  <figure class="<?= r($image->half()->isTrue(), 'figure-half') ?> flex justify-center w-full mb-3">
+  <figure class="<?= r($image->half()->isTrue(), 'figure-half') ?> flex justify-center w-full mb-5px">
     <span class="frame" style="--w:<?= $image->width() ?>;--h:<?= $image->height() ?>;">
       <img
         class="lozad"
